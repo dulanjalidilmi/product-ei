@@ -35,15 +35,15 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * This test class is to test SOAP to JSON Transformation using MessageType Property. Once a SOAP request is sent to
- * proxy service, the SOAP message will be transformed to JSON using MessageType Property and send the message to
- * backend service. The backend service will send back a JSON response and it will be transformed to SOAP format.
+ * This test class is to test POX to JSON Transformation using MessageType Property. Once a POX request is sent to
+ * proxy service, the POX message will be transformed to JSON using Property Mediator and send the message to
+ * backend service. The backend service will send back a JSON response and it will be transformed to POX format.
  */
 
-public class SoapToJsonUsingMessageTypeTest extends ScenarioTestBase {
+public class PoxToJsonUsingMessageTypeTest extends ScenarioTestBase {
 
-    private String cappNameWithVersion = "approach_1_1_2_synapse_configCompositeApplication_1.0.0";
-    private String proxyServiceName = "1_1_2_soap_to_json_using_message_type";
+    private String cappNameWithVersion = "approach_1_2_2_synapse_configCompositeApplication_1.0.0";
+    private String proxyServiceName = "1_2_2_pox_to_json_using_message_type";
     private String proxyServiceUrl;
 
 
@@ -54,9 +54,9 @@ public class SoapToJsonUsingMessageTypeTest extends ScenarioTestBase {
         deployCarbonApplication(cappNameWithVersion);
     }
 
-    @Test(description = "1.1.2.1-Valid Soap To Json transformation Using MessageType property", enabled = true,
-          dataProvider = "1.1.2.1")
-    public void convertValidSoapToJsonUsingMessageType(String request, String expectedResponse, String header) throws Exception {
+    @Test(description = "1.2.2.1-Valid Soap To Json transformation Using MessageType property", enabled = true,
+          dataProvider = "1.2.2.1")
+    public void convertValidPoxToJsonUsingMessageType(String request, String expectedResponse, String header) throws Exception {
         log.info("proxyServiceUrl is set as : " + proxyServiceUrl);
 
         SimpleHttpClient httpClient = new SimpleHttpClient();
@@ -67,15 +67,15 @@ public class SoapToJsonUsingMessageTypeTest extends ScenarioTestBase {
                                                       HttpConstants.MEDIA_TYPE_APPLICATION_XML);
         String responsePayload = httpClient.getResponsePayload(httpResponse);
 
-        Assert.assertEquals(httpResponse.getStatusLine().getStatusCode(), 200, "SOAP to JSON transformation failed");
+        Assert.assertEquals(httpResponse.getStatusLine().getStatusCode(), 200, "POX to JSON transformation failed");
         Assert.assertEquals(StringUtil.trimTabsSpaceNewLinesBetweenXMLTags(expectedResponse),
                             StringUtil.trimTabsSpaceNewLinesBetweenXMLTags(responsePayload),
-                            "Actual Response and Expected Response mismatch!");
+                            "Actual Response and Expected Response mismatch in 1_2_2_1!");
     }
 
-    @Test(description = "1.1.2.2-Malformed Soap to Json Using MessageType property", enabled = true,
-          dataProvider = "1.1.2.2")
-    public void convertMalformedSoapToJsonUsingMessageType(String request, String expectedResponse, String header)
+    @Test(description = "1.2.2.2-Malformed Pox to Json Using MessageType property", enabled = true,
+          dataProvider = "1.2.2.2")
+    public void convertMalformedPoxToJsonUsingMessageType(String request, String expectedResponse, String header)
             throws Exception {
         log.info("proxyServiceUrl is set as : " + proxyServiceUrl);
 
@@ -87,14 +87,14 @@ public class SoapToJsonUsingMessageTypeTest extends ScenarioTestBase {
                                                       HttpConstants.MEDIA_TYPE_APPLICATION_XML);
         String responsePayload = httpClient.getResponsePayload(httpResponse);
 
-        Assert.assertEquals(httpResponse.getStatusLine().getStatusCode(), 500, "SOAP to JSON transformation failed");
+        Assert.assertEquals(httpResponse.getStatusLine().getStatusCode(), 500, "POX to JSON transformation failed");
         Assert.assertEquals(StringUtil.trimTabsSpaceNewLinesBetweenXMLTags(expectedResponse),
                             StringUtil.trimTabsSpaceNewLinesBetweenXMLTags(responsePayload),
-                            "Actual Response and Expected Response mismatch!");
+                            "Actual Response and Expected Response mismatch in 1_2_2_2!");
     }
 
-    @Test(description = "1.1.2.3-Large Soap to Json Using MessageType property", enabled = true,
-          dataProvider = "1.1.2.3")
+    @Test(description = "1.2.2.3-Large Soap to Json Using MessageType property", enabled = true,
+          dataProvider = "1.2.2.3")
     public void convertLargeSoapToJsonUsingMessageType(String request, String expectedResponse, String header)
             throws Exception {
         log.info("proxyServiceUrl is set as : " + proxyServiceUrl);
@@ -107,31 +107,31 @@ public class SoapToJsonUsingMessageTypeTest extends ScenarioTestBase {
                                                       HttpConstants.MEDIA_TYPE_APPLICATION_XML);
         String responsePayload = httpClient.getResponsePayload(httpResponse);
 
-        Assert.assertEquals(httpResponse.getStatusLine().getStatusCode(), 200, "SOAP to JSON transformation failed");
+        Assert.assertEquals(httpResponse.getStatusLine().getStatusCode(), 200, "POX to JSON transformation failed");
         Assert.assertEquals(StringUtil.trimTabsSpaceNewLinesBetweenXMLTags(expectedResponse),
                             StringUtil.trimTabsSpaceNewLinesBetweenXMLTags(responsePayload),
-                            "Actual Response and Expected Response mismatch!");
+                            "Actual Response and Expected Response mismatch in 1_2_2_3!");
     }
 
     @AfterClass(description = "Server Cleanup", alwaysRun = true)
     public void cleanup() throws Exception {
     }
 
-    @DataProvider(name = "1.1.2.1")
-    public Iterator<Object[]> soapToJson_1_1_2_1() throws Exception {
-        String testCase = "1.1.2.1";
+    @DataProvider(name = "1.2.2.1")
+    public Iterator<Object[]> poxToJson_1_2_2_1() throws Exception {
+        String testCase = "1.2.2.1";
         return getRequestResponseHeaderList(testCase).iterator();
     }
 
-    @DataProvider(name = "1.1.2.2")
-    public Iterator<Object[]> soapToJson_1_1_2_2() throws Exception {
-        String testCase = "1.1.2.2";
+    @DataProvider(name = "1.2.2.2")
+    public Iterator<Object[]> poxToJson_1_2_2_2() throws Exception {
+        String testCase = "1.2.2.2";
         return getRequestResponseHeaderList(testCase).iterator();
     }
 
-    @DataProvider(name = "1.1.2.3")
-    public Iterator<Object[]> soapToJson_1_1_2_3() throws Exception {
-        String testCase = "1.1.2.3";
+    @DataProvider(name = "1.2.2.3")
+    public Iterator<Object[]> poxToJson_1_2_2_3() throws Exception {
+        String testCase = "1.2.2.3";
         return getRequestResponseHeaderList(testCase).iterator();
     }
 }
