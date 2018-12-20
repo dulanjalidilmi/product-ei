@@ -24,10 +24,15 @@ import org.apache.http.Header;
 import org.apache.http.HeaderElement;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpUriRequest;
+import org.testng.Assert;
+import org.wso2.carbon.esb.scenario.test.common.ScenarioConstants;
+import org.wso2.carbon.esb.scenario.test.common.StringUtil;
+import org.wso2.esb.integration.common.utils.clients.SimpleHttpClient;
 
 import javax.xml.stream.XMLStreamException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -120,6 +125,37 @@ public class HTTPUtils {
             headerVal =  headerElements[0].getValue();
         }
         return headerVal;
+    }
+
+    /**
+     * invoke api or proxy service and assert
+     *
+     * @param serviceUrl proxy service url or api url
+     * @param request the request to transform
+     * @param messageId messageId to be set as headers
+     * @param expectedResponse expected response from the after transformation
+     * @param statusCode expected status code
+     * @param contentType content type
+     * @param testcaseName testcase name to be logged during a test failure
+     * @throws IOException
+     */
+
+    public static void invokeServiceAndAssert(String serviceUrl, String request, String messageId, String expectedResponse,
+                                       int statusCode, String contentType, String testcaseName) throws IOException {
+
+        SimpleHttpClient httpClient = new SimpleHttpClient();
+
+        Map<String, String> headers = new HashMap<String, String>();
+        headers.put(ScenarioConstants.MESSAGE_ID, messageId);
+        HttpResponse httpResponse = httpClient.doPost(serviceUrl, headers, request,
+                                                      HttpConstants.MEDIA_TYPE_APPLICATION_XML);
+        String responsePayload = httpClient.getResponsePayload(httpResponse);
+
+        Assert.assertEquals(httpResponse.getStatusLine().getStatusCode(), statusCode, testcaseName + " failed");
+        Assert.assertEquals(StringUtil.trimTabsSpaceNewLinesBetweenXMLTags(expectedResponse),
+                            StringUtil.trimTabsSpaceNewLinesBetweenXMLTags(responsePayload),
+                            "Actual Response and Expected Response mismatch in test case : " + messageId);
+
     }
 
 }
