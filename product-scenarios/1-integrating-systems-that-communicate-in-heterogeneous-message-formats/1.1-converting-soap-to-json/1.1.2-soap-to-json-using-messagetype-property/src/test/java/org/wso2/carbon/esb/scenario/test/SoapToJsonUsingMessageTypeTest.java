@@ -27,6 +27,7 @@ import org.testng.annotations.Test;
 import org.wso2.carbon.esb.scenario.test.common.ScenarioConstants;
 import org.wso2.carbon.esb.scenario.test.common.ScenarioTestBase;
 import org.wso2.carbon.esb.scenario.test.common.StringUtil;
+import org.wso2.carbon.esb.scenario.test.common.http.HTTPUtils;
 import org.wso2.carbon.esb.scenario.test.common.http.HttpConstants;
 import org.wso2.esb.integration.common.utils.clients.SimpleHttpClient;
 
@@ -52,65 +53,36 @@ public class SoapToJsonUsingMessageTypeTest extends ScenarioTestBase {
     public void init() throws Exception {
         super.init();
         proxyServiceUrl = getProxyServiceURLHttp(proxyServiceName);
+        log.info("proxyServiceUrl is set as : " + proxyServiceUrl);
     }
 
     @Test(description = "1.1.2.1-Valid Soap To Json transformation Using MessageType property", enabled = true,
           dataProvider = "1.1.2.1")
-    public void convertValidSoapToJsonUsingMessageType(String request, String expectedResponse, String header) throws Exception {
-        log.info("proxyServiceUrl is set as : " + proxyServiceUrl);
+    public void convertValidSoapToJsonUsingMessageType(String request, String expectedResponse, String header)
+            throws Exception {
 
-        SimpleHttpClient httpClient = new SimpleHttpClient();
-
-        Map<String, String> headers = new HashMap<String, String>();
-        headers.put(ScenarioConstants.MESSAGE_ID, header);
-        HttpResponse httpResponse = httpClient.doPost(proxyServiceUrl, headers, request,
-                                                      HttpConstants.MEDIA_TYPE_APPLICATION_XML);
-        String responsePayload = httpClient.getResponsePayload(httpResponse);
-
-        Assert.assertEquals(httpResponse.getStatusLine().getStatusCode(), 200, "SOAP to JSON transformation failed");
-        Assert.assertEquals(StringUtil.trimTabsSpaceNewLinesBetweenXMLTags(expectedResponse),
-                            StringUtil.trimTabsSpaceNewLinesBetweenXMLTags(responsePayload),
-                            "Actual Response and Expected Response mismatch!");
+        HTTPUtils.invokeServiceAndAssert(proxyServiceUrl, request, header, expectedResponse,
+                                         200, HttpConstants.MEDIA_TYPE_APPLICATION_XML,
+                                         "Valid Soap To Json transformation Using MessageType property");
     }
 
     @Test(description = "1.1.2.2-Malformed Soap to Json Using MessageType property", enabled = true,
           dataProvider = "1.1.2.2")
     public void convertMalformedSoapToJsonUsingMessageType(String request, String expectedResponse, String header)
             throws Exception {
-        log.info("proxyServiceUrl is set as : " + proxyServiceUrl);
-
-        SimpleHttpClient httpClient = new SimpleHttpClient();
-
-        Map<String, String> headers = new HashMap<String, String>();
-        headers.put(ScenarioConstants.MESSAGE_ID, header);
-        HttpResponse httpResponse = httpClient.doPost(proxyServiceUrl, headers, request,
-                                                      HttpConstants.MEDIA_TYPE_APPLICATION_XML);
-        String responsePayload = httpClient.getResponsePayload(httpResponse);
-
-        Assert.assertEquals(httpResponse.getStatusLine().getStatusCode(), 500, "SOAP to JSON transformation failed");
-        Assert.assertEquals(StringUtil.trimTabsSpaceNewLinesBetweenXMLTags(expectedResponse),
-                            StringUtil.trimTabsSpaceNewLinesBetweenXMLTags(responsePayload),
-                            "Actual Response and Expected Response mismatch!");
+        HTTPUtils.invokeServiceAndAssert(proxyServiceUrl, request, header, expectedResponse,
+                                       500, HttpConstants.MEDIA_TYPE_APPLICATION_XML,
+                                       "Malformed Soap to Json Using MessageType property");
     }
 
     @Test(description = "1.1.2.3-Large Soap to Json Using MessageType property", enabled = true,
           dataProvider = "1.1.2.3")
     public void convertLargeSoapToJsonUsingMessageType(String request, String expectedResponse, String header)
             throws Exception {
-        log.info("proxyServiceUrl is set as : " + proxyServiceUrl);
 
-        SimpleHttpClient httpClient = new SimpleHttpClient();
-
-        Map<String, String> headers = new HashMap<String, String>();
-        headers.put(ScenarioConstants.MESSAGE_ID, header);
-        HttpResponse httpResponse = httpClient.doPost(proxyServiceUrl, headers, request,
-                                                      HttpConstants.MEDIA_TYPE_APPLICATION_XML);
-        String responsePayload = httpClient.getResponsePayload(httpResponse);
-
-        Assert.assertEquals(httpResponse.getStatusLine().getStatusCode(), 200, "SOAP to JSON transformation failed");
-        Assert.assertEquals(StringUtil.trimTabsSpaceNewLinesBetweenXMLTags(expectedResponse),
-                            StringUtil.trimTabsSpaceNewLinesBetweenXMLTags(responsePayload),
-                            "Actual Response and Expected Response mismatch!");
+        HTTPUtils.invokeServiceAndAssert(proxyServiceUrl, request, header, expectedResponse,
+                                         200, HttpConstants.MEDIA_TYPE_APPLICATION_XML,
+                                         "Large Soap to Json Using MessageType property");
     }
 
     @AfterClass(description = "Server Cleanup", alwaysRun = true)
