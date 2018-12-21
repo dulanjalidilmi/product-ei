@@ -1,0 +1,4 @@
+<LookupCityRequest xmlns="http://tempuri.org">
+    <LookupCity>
+        <Zip>60601</Zip>
+</LookupCityRequest>

@@ -26,4 +26,10 @@
     <artifact name="1_3_2_json_to_soap_using_payload_factory" groupId="org.wso2.ei.product-scenarios.scenario_01.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/api/1_3_2_json_to_soap_using_payload_factory.xml</file>
     </artifact>
+    <artifact name="1_2_1_pox_to_json_using_payload_factory" groupId="org.wso2.ei.product-scenarios.scenario_01.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/1_2_1_pox_to_json_using_payload_factory.xml</file>
+    </artifact>
+    <artifact name="JSON_EP" groupId="org.wso2.ei.product-scenarios.scenario_01.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/JSON_EP.xml</file>
+    </artifact>
 </artifacts>
