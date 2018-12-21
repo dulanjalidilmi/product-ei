@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<proxy name="1_1_2_Proxy_soap_to_json_using_message_type" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+<proxy name="1_2_2_pox_to_json_using_message_type" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
     <target>
         <inSequence>
             <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
@@ -7,7 +7,7 @@
                 <property expression="json-eval('$')" name="JSON_VALUE"/>
             </log>
             <property action="remove" description="Avoid appending resource to endpoint URL" name="REST_URL_POSTFIX" scope="axis2"/>
-            <send description="Send Request Payload to SOAP endpoint">
+            <send description="Send Request Payload to JSON endpoint">
                 <endpoint key="JSON_EP"/>
             </send>
         </inSequence>
@@ -17,7 +17,7 @@
         </outSequence>
         <faultSequence>
             <makefault version="soap11">
-                <code expression="get-property('ERROR_CODE')" xmlns:soap11Env="http://schemas.xmlsoap.org/soap/envelope/"/>
+                <code expression="get-property('ERROR_CODE')"/>
                 <reason expression="get-property('ERROR_MESSAGE')"/>
             </makefault>
             <header action="remove" name="To" scope="default"/>
