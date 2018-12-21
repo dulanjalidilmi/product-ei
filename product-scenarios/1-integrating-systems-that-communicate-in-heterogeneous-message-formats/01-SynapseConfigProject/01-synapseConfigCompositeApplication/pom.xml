@@ -27,6 +27,7 @@
     <org.wso2.ei.product-scenarios.scenario_01.proxy-service_._1_1_2_Proxy_soap_to_json_using_message_type>capp/EnterpriseServiceBus</org.wso2.ei.product-scenarios.scenario_01.proxy-service_._1_1_2_Proxy_soap_to_json_using_message_type>
     <org.wso2.ei.product-scenarios.scenario_01.endpoint_._POX_EP>capp/EnterpriseServiceBus</org.wso2.ei.product-scenarios.scenario_01.endpoint_._POX_EP>
     <org.wso2.ei.product-scenarios.scenario_01.proxy-service_._1_6_1_2_Proxy_SoapToPoxEnrichWithXpathAsChild>capp/EnterpriseServiceBus</org.wso2.ei.product-scenarios.scenario_01.proxy-service_._1_6_1_2_Proxy_SoapToPoxEnrichWithXpathAsChild>
+    <org.wso2.ei.product-scenarios.scenario_01.proxy-service_._1_1_2_Proxy_soap_to_json_using_message_type>capp/EnterpriseServiceBus</org.wso2.ei.product-scenarios.scenario_01.proxy-service_._1_1_2_Proxy_soap_to_json_using_message_type>
   </properties>
   <dependencies>
     <dependency>
