@@ -52,9 +52,17 @@
                             </value>
                         </property>
                         <property>
-                            <name>framework.resource.location</name>
+                            <!-- Directory containing carbon applications -->
+                            <name>test.resources.carbonApplications.dir</name>
                             <value>
-                                ${basedir}/src/test/resources/
+                                ${basedir}/../../01-SynapseConfigProject/01-synapseConfigCompositeApplication/target/
+                            </value>
+                        </property>
+                        <property>
+                            <!-- Related carbon applications (comma separated) to deploy -->
+                            <name>test.resources.carbonApplications.list</name>
+                            <value>
+                                01-synapseConfigCompositeApplication_1.0.0
                             </value>
                         </property>
                         <property>
