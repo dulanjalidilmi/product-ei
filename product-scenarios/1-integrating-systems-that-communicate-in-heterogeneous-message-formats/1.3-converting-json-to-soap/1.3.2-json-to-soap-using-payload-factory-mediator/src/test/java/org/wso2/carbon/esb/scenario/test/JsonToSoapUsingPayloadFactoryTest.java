@@ -41,27 +41,24 @@ public class JsonToSoapUsingPayloadFactoryTest extends ScenarioTestBase {
 
     private static final Log log = LogFactory.getLog(JsonToSoapUsingPayloadFactoryTest.class);
 
-    private String cappNameWithVersion = "approach_1_3_2_synapse_configCompositeApplication_1.0.0";
-    private String proxyServiceName = "1_3_2_json_to_soap_using_payload_factory";
-    private String proxyServiceUrl;
+    private String apiName = "1_3_2_json_to_soap_using_payload_factory";
+    private String apiInvocationUrl;
 
     @BeforeClass(alwaysRun = true)
     public void init() throws Exception {
         super.init();
-        proxyServiceUrl = getProxyServiceURLHttp(proxyServiceName);
-        deployCarbonApplication(cappNameWithVersion);
+        apiInvocationUrl = getApiInvocationURLHttp(apiName);
+        log.info("apiInvocationUrl is set as : " + apiInvocationUrl);
     }
 
     @Test(description = "1.3.2.1-Valid JSON to SOAP transformation", enabled = true, dataProvider = "1.3.2.1")
     public void validJsonToSoapTransformation(String request, String expectedResponse, String header) throws IOException {
-        log.info("Executing test case 1.3.2.1");
-        log.info("proxyServiceUrl is set as : " + proxyServiceUrl);
 
         SimpleHttpClient httpClient = new SimpleHttpClient();
 
         Map<String, String> headers = new HashMap<String, String>();
         headers.put(ScenarioConstants.MESSAGE_ID, header);
-        HttpResponse httpResponse = httpClient.doPost(proxyServiceUrl, headers, request, HttpConstants.MEDIA_TYPE_APPLICATION_JSON);
+        HttpResponse httpResponse = httpClient.doPost(apiInvocationUrl, headers, request, HttpConstants.MEDIA_TYPE_APPLICATION_JSON);
         String responsePayload = httpClient.getResponsePayload(httpResponse);
 
         Assert.assertEquals(httpResponse.getStatusLine().getStatusCode(), 200, "JSON to SOAP transformation failed");
