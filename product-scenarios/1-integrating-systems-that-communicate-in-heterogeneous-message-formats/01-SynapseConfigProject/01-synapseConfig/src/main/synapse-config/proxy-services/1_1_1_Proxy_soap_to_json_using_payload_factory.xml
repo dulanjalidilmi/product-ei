@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<api context="/1_1_1_API_soap_to_json_using_payload_factory" name="1_1_1_API_soap_to_json_using_payload_factory" xmlns="http://ws.apache.org/ns/synapse">
-    <resource methods="POST">
+<proxy name="1_1_1_Proxy_soap_to_json_using_payload_factory" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
         <inSequence>
             <payloadFactory description="Build Response Payload in JSON format" media-type="json">
                 <format>{ "LookupCity": {"Zip": $1}}</format>
@@ -49,5 +49,5 @@
             <property name="messageType" scope="axis2" type="STRING" value="application/xml"/>
             <respond/>
         </faultSequence>
-    </resource>
-</api>
+    </target>
+</proxy>
