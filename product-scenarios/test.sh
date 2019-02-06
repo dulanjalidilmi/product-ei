@@ -80,7 +80,7 @@ echo "input directory : ${INPUT_DIR}"
 echo "output directory : ${OUTPUT_DIR}"
 
 export DATA_BUCKET_LOCATION=${INPUT_DIR}
-sleep 3600
+sleep 10800
 
 #=============== Execute Scenarios ===============================================
 #Retreive product version
