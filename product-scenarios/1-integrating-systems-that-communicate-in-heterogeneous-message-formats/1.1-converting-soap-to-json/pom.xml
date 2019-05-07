@@ -21,18 +21,19 @@
 
     <parent>
         <groupId>org.wso2.ei</groupId>
-        <artifactId>heterogeneous-message-formats-tests</artifactId>
+        <artifactId>1-heterogeneous-message-formats-tests</artifactId>
         <version>6.4.0</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>soap-to-json-tests</artifactId>
-    <name>Converting SOAP to JSON</name>
+    <artifactId>1.1-converting-soap-to-json</artifactId>
     <packaging>pom</packaging>
 
     <modules>
         <module>1.1.1-soap-to-json-using-payloadfactory-mediator</module>
+        <module>1.1.2-soap-to-json-using-messagetype-property</module>
+        <module>1.1.3-soap-to-json-using-data-mapper</module>
     </modules>
 
 </project>

@@ -31,17 +31,17 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.wso2.ei</groupId>
     <artifactId>wso2analytics-profile</artifactId>
-    <version>6.5.0-m3-SNAPSHOT</version>
+    <version>6.5.0-m7-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>&gt;WSO2 Enterprise Integrator - Analytics Profile Generation</name>
 
     <properties>
 
-        <carbon.analytics.version>2.0.423</carbon.analytics.version>
-        <siddhi.version>4.2.20</siddhi.version>
+        <carbon.analytics.version>2.1.8</carbon.analytics.version>
+        <siddhi.version>4.5.5</siddhi.version>
 
-        <carbon.analytics-common.version>6.0.70</carbon.analytics-common.version>
-        <analytics.solutions.version>1.0.12</analytics.solutions.version>
+        <carbon.analytics-common.version>6.1.18</carbon.analytics-common.version>
+        <analytics.solutions.version>1.0.43</analytics.solutions.version>
         <!-- Maven plugins -->
         <!--Bundle Plugin - Overridden from parent due to a bug in latest version related to capability providers-->
         <maven.bundle.plugin.version>2.5.4</maven.bundle.plugin.version>
@@ -70,15 +70,15 @@
         <carbon.deployment.version>5.2.0</carbon.deployment.version>
 
         <carbon.datasources.version>1.1.4</carbon.datasources.version>
-        <carbon.metrics.version>2.3.7</carbon.metrics.version>
+        <carbon.metrics.version>2.3.10</carbon.metrics.version>
         <carbon.jndi.version>1.0.5</carbon.jndi.version>
 
         <carbon.cache.version>1.1.3</carbon.cache.version>
         <carbon.touchpoint.version>1.1.1</carbon.touchpoint.version>
         <carbon.utils.version>2.0.8</carbon.utils.version>
-        <carbon.config.version>2.1.5</carbon.config.version>
+        <carbon.config.version>2.1.12</carbon.config.version>
         <carbon.config.version.range>[2.1.0, 3.0.0)</carbon.config.version.range>
-        <carbon.securevault.version>5.0.12</carbon.securevault.version>
+        <carbon.securevault.version>5.0.13</carbon.securevault.version>
 
         <slf4j.version>1.7.5</slf4j.version>
         <slf4j.logging.package.import.version.range>[1.7.1, 2.0.0)
@@ -86,13 +86,12 @@
 
         <antlr4.runtime.version>4.5.1.wso2v1</antlr4.runtime.version>
         <!--Dashboard-->
-        <carbon.dashboards.version>4.0.38</carbon.dashboards.version>
-        <carbon.uis.version>0.19.5</carbon.uis.version>
+        <carbon.dashboards.version>4.0.63</carbon.dashboards.version>
+        <carbon.uis.version>1.0.2</carbon.uis.version>
         <maven.exec.plugin.version>1.5.0</maven.exec.plugin.version>
 
         <!-- json dependencies -->
-        <gson.version>2.8.0</gson.version>
-        <gson.import.version.range>[2.7, 2.8.0)</gson.import.version.range>
+        <gson.version>2.8.5</gson.version>
         <jayway.jsonpath.version>2.2.0</jayway.jsonpath.version>
         <jayway.jsonpath.import.version.range>[2.2.0,2.3.0)</jayway.jsonpath.import.version.range>
         <tapestry.json.orbit.version>5.4.1.wso2v1</tapestry.json.orbit.version>
@@ -123,17 +122,16 @@
         <disruptor.version>3.3.2.wso2v2</disruptor.version>
         <guava.version>20.0</guava.version>
         <guava.bundle.version>20.0.0</guava.bundle.version>
-        <gson.version>2.5</gson.version>
         <quartz.version>2.1.1.wso2v1</quartz.version>
         <metrics.version>3.2.5</metrics.version>
         <commons-lang3.version>3.3.2</commons-lang3.version>
         <commons-collections4.version>4.0</commons-collections4.version>
-        <kafka-2.10.version>0.8.1.1</kafka-2.10.version>
         <common.collections4.version>4.0</common.collections4.version>
+        <carbon.coordination.version>2.1.1</carbon.coordination.version>
 
         <!--MSF4J related-->
-        <msf4j.version>2.6.4</msf4j.version>
-        <com.fasterxml.jackson.core.version>2.8.9</com.fasterxml.jackson.core.version>
+        <msf4j.version>2.7.1</msf4j.version>
+        <com.fasterxml.jackson.core.version>2.9.8</com.fasterxml.jackson.core.version>
         <io.swagger.version>1.5.16</io.swagger.version>
         <javax.ws.rs-api.version>2.0</javax.ws.rs-api.version>
         <pax.logging.api.version>1.8.5</pax.logging.api.version>
@@ -153,62 +151,11 @@
         <project.scm.id>scm-server</project.scm.id>
 
         <!--Siddhi Extension Versions-->
-        <siddhi.execution.math.version>4.0.20</siddhi.execution.math.version>
-        <siddhi.execution.unitconversion.version>1.0.15</siddhi.execution.unitconversion.version>
-        <siddhi.execution.regex.version>4.0.14</siddhi.execution.regex.version>
-        <siddhi.execution.streamingml.version>1.0.19</siddhi.execution.streamingml.version>
-        <siddhi.execution.timeseries.version>4.0.17</siddhi.execution.timeseries.version>
-        <siddhi.execution.string.version>4.0.24</siddhi.execution.string.version>
-        <siddhi.execution.extrema.version>4.0.14</siddhi.execution.extrema.version>
-        <siddhi.execution.time.version>4.0.16</siddhi.execution.time.version>
-        <siddhi.execution.unique.version>4.0.26</siddhi.execution.unique.version>
-        <siddhi.execution.priority.version>4.0.13</siddhi.execution.priority.version>
-        <siddhi.execution.markov.version>4.0.15</siddhi.execution.markov.version>
-        <siddhi.execution.geo.version>4.0.16</siddhi.execution.geo.version>
-        <siddhi.execution.map.version>4.0.15</siddhi.execution.map.version>
-        <siddhi.execution.sentiment.version>4.0.15</siddhi.execution.sentiment.version>
-        <siddhi.execution.reorder.version>4.0.21</siddhi.execution.reorder.version>
-        <siddhi.execution.stats.version>1.0.14</siddhi.execution.stats.version>
-        <siddhi.execution.kalmanfilter.version>4.0.13</siddhi.execution.kalmanfilter.version>
-        <siddhi.execution.approximate.version>1.0.18</siddhi.execution.approximate.version>
-        <siddhi.execution.graph.version>1.0.12</siddhi.execution.graph.version>
-        <siddhi.execution.tensorflow.version>1.0.6</siddhi.execution.tensorflow.version>
-        <siddhi.execution.env.version>1.0.10</siddhi.execution.env.version>
-        <siddhi.execution.json.version>1.0.8</siddhi.execution.json.version>
-
-        <siddhi.io.file.version>1.0.14</siddhi.io.file.version>
-        <siddhi.io.tcp.version>2.0.20</siddhi.io.tcp.version>
-        <siddhi.io.jms.version>1.0.31</siddhi.io.jms.version>
-        <siddhi.io.email.version>1.0.23</siddhi.io.email.version>
-        <siddhi.io.rabbitmq.version>1.0.20</siddhi.io.rabbitmq.version>
-        <siddhi.io.mqtt.version>1.0.22</siddhi.io.mqtt.version>
-        <siddhi.io.kafka.version>4.1.17</siddhi.io.kafka.version>
-        <siddhi.io.wso2event.version>4.0.17</siddhi.io.wso2event.version>
-        <siddhi.io.http.version>1.0.39</siddhi.io.http.version>
-        <siddhi.io.twitter.version>1.0.11</siddhi.io.twitter.version>
-        <siddhi.io.sqs.version>1.0.7</siddhi.io.sqs.version>
-        <siddhi.io.websocket.version>1.0.10</siddhi.io.websocket.version>
-        <siddhi.io.ibmmq.version>1.0.5</siddhi.io.ibmmq.version>
-
-        <siddhi.map.json.version>4.0.32</siddhi.map.json.version>
-        <siddhi.map.wso2event.version>4.0.16</siddhi.map.wso2event.version>
-        <siddhi.map.binary.version>1.0.15</siddhi.map.binary.version>
-        <siddhi.map.text.version>1.0.22</siddhi.map.text.version>
-        <siddhi.map.xml.version>4.0.20</siddhi.map.xml.version>
-        <siddhi.map.keyvalue.version>1.0.17</siddhi.map.keyvalue.version>
-        <siddhi.map.csv.version>1.0.12</siddhi.map.csv.version>
-
-        <siddhi.store.mongodb.version>1.0.20</siddhi.store.mongodb.version>
-        <siddhi.store.rdbms.version>4.0.35</siddhi.store.rdbms.version>
-        <siddhi.store.solr.version>1.0.21</siddhi.store.solr.version>
-        <siddhi.store.hbase.version>4.0.13</siddhi.store.hbase.version>
-        <siddhi.store.cassandra.version>1.0.7</siddhi.store.cassandra.version>
-        <siddhi.store.redis.version>1.0.9</siddhi.store.redis.version>
-        <siddhi.store.elasticsearch.version>1.0.5</siddhi.store.elasticsearch.version>
-
-        <siddhi.script.js.version>4.0.14</siddhi.script.js.version>
-
-        <carbon.coordination.version>2.0.18</carbon.coordination.version>
+        <siddhi.execution.string.version>4.1.0</siddhi.execution.string.version>
+        <siddhi.execution.time.version>4.1.1</siddhi.execution.time.version>
+        <siddhi.io.wso2event.version>4.1.1</siddhi.io.wso2event.version>
+        <siddhi.map.wso2event.version>4.1.1</siddhi.map.wso2event.version>
+        <siddhi.store.rdbms.version>5.1.6</siddhi.store.rdbms.version>
 
         <!--Integration Test Framework Versions -->
         <testng.version>6.9.10</testng.version>
@@ -217,12 +164,12 @@
         <apache.commons.version>1.3</apache.commons.version>
         <json.version>3.0.0.wso2v1</json.version>
         <codehaus.jackson.version>1.9.13</codehaus.jackson.version>
-        <org.snakeyaml.version>1.17</org.snakeyaml.version>
+        <org.snakeyaml.version>1.23</org.snakeyaml.version>
         <mysql.con.version>6.0.5</mysql.con.version>
         <googlecode.json-simple.version>1.1.wso2v1</googlecode.json-simple.version>
-        <io.netty.version>4.1.16.Final</io.netty.version>
+        <io.netty.version>4.1.19.Final</io.netty.version>
         <log4j.version>1.2.17</log4j.version>
-        <commons-codec.wso2.version>1.3.0.wso2v1</commons-codec.wso2.version>
+        <commons-codec.wso2.version>1.12</commons-codec.wso2.version>
 
         <!--Performance Testing Versions-->
         <HdrHistogram.version>2.1.9</HdrHistogram.version>
@@ -233,6 +180,7 @@
         <forgetme.tool.version>1.1.21</forgetme.tool.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.findbugsplugin.version>3.0.4</maven.findbugsplugin.version>
     </properties>
 
 
@@ -601,13 +549,6 @@
             <version>${common.collections4.version}</version>
         </dependency>
 
-        <!-- MSF4J related -->
-        <!--<dependency>-->
-            <!--<groupId>org.wso2.msf4j</groupId>-->
-            <!--<artifactId>org.wso2.msf4j.feature</artifactId>-->
-            <!--<version>${msf4j.version}</version>-->
-            <!--<type>zip</type>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>org.wso2.carbon.deployment</groupId>
             <artifactId>org.wso2.carbon.deployment.engine.feature</artifactId>
@@ -629,6 +570,12 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>${com.fasterxml.jackson.core.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-annotations</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -649,11 +596,31 @@
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-joda</artifactId>
             <version>${com.fasterxml.jackson.core.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-databind</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-annotations</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.jaxrs</groupId>
             <artifactId>jackson-jaxrs-json-provider</artifactId>
             <version>${com.fasterxml.jackson.core.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-annotations</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -742,6 +709,24 @@
             <groupId>org.wso2.carbon.analytics</groupId>
             <artifactId>org.wso2.carbon.sp.jobmanager.core.feature</artifactId>
             <version>${carbon.analytics.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-databind</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-annotations</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.dataformat</groupId>
+                    <artifactId>jackson-dataformat-smile</artifactId>
+                </exclusion>
+            </exclusions>
             <type>zip</type>
         </dependency>
         <dependency>
@@ -842,12 +827,6 @@
             <version>${carbon.dashboards.version}</version>
             <type>zip</type>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>org.wso2.carbon.dashboards.samples</groupId>-->
-            <!--<artifactId>org.wso2.carbon.dashboards.samples.feature</artifactId>-->
-            <!--<version>${carbon.dashboards.version}</version>-->
-            <!--<type>zip</type>-->
-        <!--</dependency>-->
         <!--Carbon UI Server-->
         <dependency>
             <groupId>org.wso2.carbon.uiserver</groupId>
@@ -911,7 +890,7 @@
         <!--Status Dashboard-->
         <dependency>
             <groupId>org.wso2.carbon.analytics</groupId>
-            <artifactId>org.wso2.carbon.siddhi.metrics.core.feature</artifactId>
+            <artifactId>org.wso2.carbon.sp.metrics.core.feature</artifactId>
             <version>${carbon.analytics.version}</version>
             <type>zip</type>
         </dependency>
@@ -940,57 +919,6 @@
             <type>zip</type>
         </dependency>
 
-        <!--dependecies for sample related jars-->
-        <dependency>
-            <groupId>org.wso2.extension.siddhi.io.kafka</groupId>
-            <artifactId>siddhi-io-kafka</artifactId>
-            <version>${siddhi.io.kafka.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.wso2.extension.siddhi.io.rabbitmq</groupId>
-            <artifactId>siddhi-io-rabbitmq</artifactId>
-            <version>${siddhi.io.rabbitmq.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.wso2.extension.siddhi.io.mqtt</groupId>
-            <artifactId>siddhi-io-mqtt</artifactId>
-            <version>${siddhi.io.mqtt.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.wso2.extension.siddhi.io.twitter</groupId>
-            <artifactId>siddhi-io-twitter</artifactId>
-            <version>${siddhi.io.twitter.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.wso2.extension.siddhi.io.sqs</groupId>
-            <artifactId>siddhi-io-sqs</artifactId>
-            <version>${siddhi.io.sqs.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.wso2.extension.siddhi.io.websocket</groupId>
-            <artifactId>siddhi-io-websocket</artifactId>
-            <version>${siddhi.io.websocket.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.wso2.extension.siddhi.execution.json</groupId>
-            <artifactId>siddhi-execution-json</artifactId>
-            <version>${siddhi.execution.json.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.wso2.extension.siddhi.map.json</groupId>
-            <artifactId>siddhi-map-json</artifactId>
-            <version>${siddhi.map.json.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.wso2.extension.siddhi.map.xml</groupId>
-            <artifactId>siddhi-map-xml</artifactId>
-            <version>${siddhi.map.xml.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.wso2.extension.siddhi.map.csv</groupId>
-            <artifactId>siddhi-map-csv</artifactId>
-            <version>${siddhi.map.csv.version}</version>
-        </dependency>
 
         <!-- Forget me tool -->
         <dependency>
@@ -1019,6 +947,24 @@
             <groupId>org.wso2.msf4j</groupId>
             <artifactId>org.wso2.msf4j.feature</artifactId>
             <version>${msf4j.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-databind</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-annotations</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.dataformat</groupId>
+                    <artifactId>jackson-dataformat-yaml</artifactId>
+                </exclusion>
+            </exclusions>
             <type>zip</type>
         </dependency>
 
@@ -1088,186 +1034,11 @@
                                     <type>jar</type>
                                 </artifactItem>
                                 <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.execution.unique</groupId>
-                                    <artifactId>siddhi-execution-unique</artifactId>
-                                    <version>${siddhi.execution.unique.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.execution.regex</groupId>
-                                    <artifactId>siddhi-execution-regex</artifactId>
-                                    <version>${siddhi.execution.regex.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.execution.kalmanfilter</groupId>
-                                    <artifactId>siddhi-execution-kalman-filter</artifactId>
-                                    <version>${siddhi.execution.kalmanfilter.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.execution.markov</groupId>
-                                    <artifactId>siddhi-execution-markov</artifactId>
-                                    <version>${siddhi.execution.markov.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.execution.sentiment</groupId>
-                                    <artifactId>siddhi-execution-sentiment</artifactId>
-                                    <version>${siddhi.execution.sentiment.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.execution.priority</groupId>
-                                    <artifactId>siddhi-execution-priority</artifactId>
-                                    <version>${siddhi.execution.priority.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.execution.map</groupId>
-                                    <artifactId>siddhi-execution-map</artifactId>
-                                    <version>${siddhi.execution.map.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.execution.math</groupId>
-                                    <artifactId>siddhi-execution-math</artifactId>
-                                    <version>${siddhi.execution.math.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.execution.stats</groupId>
-                                    <artifactId>siddhi-execution-stats</artifactId>
-                                    <version>${siddhi.execution.stats.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.execution.extrema</groupId>
-                                    <artifactId>siddhi-execution-extrema</artifactId>
-                                    <version>${siddhi.execution.extrema.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.execution.timeseries</groupId>
-                                    <artifactId>siddhi-execution-timeseries</artifactId>
-                                    <version>${siddhi.execution.timeseries.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.execution.geo</groupId>
-                                    <artifactId>siddhi-execution-geo</artifactId>
-                                    <version>${siddhi.execution.geo.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.execution.streamingml</groupId>
-                                    <artifactId>siddhi-execution-streamingml</artifactId>
-                                    <version>${siddhi.execution.streamingml.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.execution.unitconversion</groupId>
-                                    <artifactId>siddhi-execution-unitconversion</artifactId>
-                                    <version>${siddhi.execution.unitconversion.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.script.js</groupId>
-                                    <artifactId>siddhi-script-js</artifactId>
-                                    <version>${siddhi.script.js.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.execution.reorder</groupId>
-                                    <artifactId>siddhi-execution-reorder</artifactId>
-                                    <version>${siddhi.execution.reorder.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.execution.approximate</groupId>
-                                    <artifactId>siddhi-execution-approximate</artifactId>
-                                    <version>${siddhi.execution.approximate.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.execution.graph</groupId>
-                                    <artifactId>siddhi-execution-graph</artifactId>
-                                    <version>${siddhi.execution.graph.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.execution.tensorflow</groupId>
-                                    <artifactId>siddhi-execution-tensorflow</artifactId>
-                                    <version>${siddhi.execution.tensorflow.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.execution.env</groupId>
-                                    <artifactId>siddhi-execution-env</artifactId>
-                                    <version>${siddhi.execution.env.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.execution.json</groupId>
-                                    <artifactId>siddhi-execution-json</artifactId>
-                                    <version>${siddhi.execution.json.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <!--IO Extensions-->
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.io.jms</groupId>
-                                    <artifactId>siddhi-io-jms</artifactId>
-                                    <version>${siddhi.io.jms.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.io.rabbitmq</groupId>
-                                    <artifactId>siddhi-io-rabbitmq</artifactId>
-                                    <version>${siddhi.io.rabbitmq.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.io.email</groupId>
-                                    <artifactId>siddhi-io-email</artifactId>
-                                    <version>${siddhi.io.email.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.io.tcp</groupId>
-                                    <artifactId>siddhi-io-tcp</artifactId>
-                                    <version>${siddhi.io.tcp.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.io.kafka</groupId>
-                                    <artifactId>siddhi-io-kafka</artifactId>
-                                    <version>${siddhi.io.kafka.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
                                     <groupId>org.wso2.extension.siddhi.io.wso2event</groupId>
                                     <artifactId>siddhi-io-wso2event</artifactId>
                                     <version>${siddhi.io.wso2event.version}</version>
                                     <type>jar</type>
                                 </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.io.file</groupId>
-                                    <artifactId>siddhi-io-file</artifactId>
-                                    <version>${siddhi.io.file.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.io.http</groupId>
-                                    <artifactId>siddhi-io-http</artifactId>
-                                    <version>${siddhi.io.http.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <!--<artifactItem>-->
-                                    <!--<groupId>org.wso2.extension.siddhi.io.twitter</groupId>-->
-                                    <!--<artifactId>siddhi-io-twitter</artifactId>-->
-                                    <!--<version>${siddhi.io.twitter.version}</version>-->
-                                    <!--<type>jar</type>-->
-                                <!--</artifactItem>-->
                                 <!--Map Extensions-->
                                 <!--Mapper Extensions-->
                                 <artifactItem>
@@ -1276,103 +1047,14 @@
                                     <version>${siddhi.map.wso2event.version}</version>
                                     <type>jar</type>
                                 </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.map.xml</groupId>
-                                    <artifactId>siddhi-map-xml</artifactId>
-                                    <version>${siddhi.map.xml.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.map.json</groupId>
-                                    <artifactId>siddhi-map-json</artifactId>
-                                    <version>${siddhi.map.json.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.map.text</groupId>
-                                    <artifactId>siddhi-map-text</artifactId>
-                                    <version>${siddhi.map.text.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.map.binary</groupId>
-                                    <artifactId>siddhi-map-binary</artifactId>
-                                    <version>${siddhi.map.binary.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.map.keyvalue</groupId>
-                                    <artifactId>siddhi-map-keyvalue</artifactId>
-                                    <version>${siddhi.map.keyvalue.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.map.csv</groupId>
-                                    <artifactId>siddhi-map-csv</artifactId>
-                                    <version>${siddhi.map.csv.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
                                 <!--Store Extensions-->
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.store.solr</groupId>
-                                    <artifactId>siddhi-store-solr</artifactId>
-                                    <version>${siddhi.store.solr.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.store.mongodb</groupId>
-                                    <artifactId>siddhi-store-mongodb</artifactId>
-                                    <version>${siddhi.store.mongodb.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
                                 <artifactItem>
                                     <groupId>org.wso2.extension.siddhi.store.rdbms</groupId>
                                     <artifactId>siddhi-store-rdbms</artifactId>
                                     <version>${siddhi.store.rdbms.version}</version>
                                     <type>jar</type>
                                 </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.io.mqtt</groupId>
-                                    <artifactId>siddhi-io-mqtt</artifactId>
-                                    <version>${siddhi.io.mqtt.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.store.hbase</groupId>
-                                    <artifactId>siddhi-store-hbase</artifactId>
-                                    <version>${siddhi.store.hbase.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.store.cassandra</groupId>
-                                    <artifactId>siddhi-store-cassandra</artifactId>
-                                    <version>${siddhi.store.cassandra.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.store.redis</groupId>
-                                    <artifactId>siddhi-store-redis</artifactId>
-                                    <version>${siddhi.store.redis.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.store.elasticsearch</groupId>
-                                    <artifactId>siddhi-store-elasticsearch</artifactId>
-                                    <version>${siddhi.store.elasticsearch.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.io.sqs</groupId>
-                                    <artifactId>siddhi-io-sqs</artifactId>
-                                    <version>${siddhi.io.sqs.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.wso2.extension.siddhi.io.websocket</groupId>
-                                    <artifactId>siddhi-io-websocket</artifactId>
-                                    <version>${siddhi.io.websocket.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
+
                                 <artifactItem>
                                     <groupId>org.wso2.analytics.solutions</groupId>
                                     <artifactId>siddhi-execution-country</artifactId>
@@ -1397,7 +1079,7 @@
                                     <version>${analytics.solutions.version}</version>
                                     <type>jar</type>
                                 </artifactItem>
- 		      <!--EI Extension-->
+ 		                        <!--EI Extension-->
                                 <artifactItem>
                                     <groupId>org.wso2.analytics.solutions</groupId>
                                     <artifactId>siddhi-execution-esbanalytics</artifactId>
@@ -1489,7 +1171,7 @@
                                     <version>${carbon.analytics.version}</version>
                                 </feature>
                                 <feature>
-                                    <id>org.wso2.carbon.siddhi.metrics.core.feature</id>
+                                    <id>org.wso2.carbon.sp.metrics.core.feature</id>
                                     <version>${carbon.analytics.version}</version>
                                 </feature>
 
@@ -1607,10 +1289,6 @@
                                     <id>org.wso2.carbon.dashboards.portal.feature</id>
                                     <version>${carbon.dashboards.version}</version>
                                 </feature>
-                                <!--<feature>-->
-                                    <!--<id>org.wso2.carbon.dashboards.samples.feature</id>-->
-                                    <!--<version>${carbon.dashboards.version}</version>-->
-                                <!--</feature>-->
                                 <!--Status Dashboard-->
                                 <feature>
                                     <id>org.wso2.carbon.status.dashboard.core.feature</id>
@@ -1651,31 +1329,11 @@
                                     <id>org.wso2.analytics.solutions.common.feature</id>
                                     <version>${analytics.solutions.version}</version>
                                 </feature>
-                                <!--<feature>-->
-                                    <!--<id>org.wso2.analytics.solutions.sp.twitter.analytics.feature</id>-->
-                                    <!--<version>${analytics.solutions.version}</version>-->
-                                <!--</feature>-->
-                                <!--<feature>-->
-                                    <!--<id>org.wso2.analytics.solutions.sp.http.analytics.feature</id>-->
-                                    <!--<version>${analytics.solutions.version}</version>-->
-                                <!--</feature>-->
-                                <!--<feature>-->
-                                    <!--<id>org.wso2.analytics.solutions.sp.message.tracer.feature</id>-->
-                                    <!--<version>${analytics.solutions.version}</version>-->
-                                <!--</feature>-->
-                                <!--<feature>-->
-                                    <!--<id>org.wso2.analytics.solutions.is.analytics.feature</id>-->
-                                    <!--<version>${analytics.solutions.version}</version>-->
-                                <!--</feature>-->
                                 <!--EI feature-->
                                 <feature>
                                     <id>org.wso2.analytics.solutions.ei.analytics.feature</id>
                                     <version>${analytics.solutions.version}</version>
                                 </feature>
-                                <!--<feature>-->
-                                    <!--<id>org.wso2.analytics.solutions.apim.analytics.feature</id>-->
-                                    <!--<version>${analytics.solutions.version}</version>-->
-                                <!--</feature>-->
                             </features>
                         </configuration>
                     </execution>
@@ -1748,10 +1406,6 @@
                             </destination>
                             <deleteOldRuntimeFiles>true</deleteOldRuntimeFiles>
                             <features>
-                                <!--<feature>-->
-                                    <!--<id>org.wso2.analytics.solutions.apim.analytics.feature</id>-->
-                                    <!--<version>${analytics.solutions.version}</version>-->
-                                <!--</feature>-->
                                 <feature>
                                     <id>org.wso2.carbon.touchpoint.feature.group</id>
                                     <version>${carbon.touchpoint.version}</version>
@@ -1815,7 +1469,7 @@
                                     <version>${carbon.analytics.version}</version>
                                 </feature>
                                 <feature>
-                                    <id>org.wso2.carbon.siddhi.metrics.core.feature.group</id>
+                                    <id>org.wso2.carbon.sp.metrics.core.feature.group</id>
                                     <version>${carbon.analytics.version}</version>
                                 </feature>
                                 <!-- MSF4J Features -->
@@ -1996,7 +1650,7 @@
                                     <version>${carbon.analytics.version}</version>
                                 </feature>
                                 <feature>
-                                    <id>org.wso2.carbon.siddhi.metrics.core.feature.group</id>
+                                    <id>org.wso2.carbon.sp.metrics.core.feature.group</id>
                                     <version>${carbon.analytics.version}</version>
                                 </feature>
                                 <!-- MSF4J Features -->
@@ -2152,10 +1806,6 @@
                                     <id>org.wso2.carbon.dashboards.portal.feature.group</id>
                                     <version>${carbon.dashboards.version}</version>
                                 </feature>
-                                <!--<feature>-->
-                                    <!--<id>org.wso2.carbon.dashboards.samples.feature</id>-->
-                                    <!--<version>${carbon.dashboards.version}</version>-->
-                                <!--</feature>-->
                                 <!--Status Dahsboard-->
                                 <feature>
                                     <id>org.wso2.carbon.status.dashboard.core.feature.group</id>
@@ -2234,22 +1884,6 @@
                                     <id>org.wso2.analytics.solutions.common.feature</id>
                                     <version>${analytics.solutions.version}</version>
                                 </feature>
-                                <!--<feature>-->
-                                    <!--<id>org.wso2.analytics.solutions.sp.twitter.analytics.feature</id>-->
-                                    <!--<version>${analytics.solutions.version}</version>-->
-                                <!--</feature>-->
-                                <!--<feature>-->
-                                    <!--<id>org.wso2.analytics.solutions.sp.http.analytics.feature</id>-->
-                                    <!--<version>${analytics.solutions.version}</version>-->
-                                <!--</feature>-->
-                                <!--<feature>-->
-                                    <!--<id>org.wso2.analytics.solutions.sp.message.tracer.feature</id>-->
-                                    <!--<version>${analytics.solutions.version}</version>-->
-                                <!--</feature>-->
-                                <!--<feature>-->
-                                    <!--<id>org.wso2.analytics.solutions.is.analytics.feature</id>-->
-                                    <!--<version>${analytics.solutions.version}</version>-->
-                                <!--</feature>-->
                                 <!--EI feature-->
                                 <feature>
                                     <id>org.wso2.analytics.solutions.ei.analytics.feature</id>
@@ -2327,6 +1961,35 @@
                             <finalName>wso2sp-${project.version}</finalName>
                             <appendAssemblyId>false</appendAssemblyId>
                         </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>${maven.findbugsplugin.version}</version>
+                <configuration>
+                    <effort>Max</effort>
+                    <threshold>Low</threshold>
+                    <xmlOutput>true</xmlOutput>
+                    <findbugsXmlOutputDirectory>${project.build.directory}/findbugs</findbugsXmlOutputDirectory>
+                    <!--Exclude sources-->
+                    <excludeFilterFile />
+                    <plugins>
+                        <plugin>
+                            <groupId>com.h3xstream.findsecbugs</groupId>
+                            <artifactId>findsecbugs-plugin</artifactId>
+                            <version>LATEST</version> <!-- Auto-update to the latest stable -->
+                        </plugin>
+                    </plugins>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>analyze-compile</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
