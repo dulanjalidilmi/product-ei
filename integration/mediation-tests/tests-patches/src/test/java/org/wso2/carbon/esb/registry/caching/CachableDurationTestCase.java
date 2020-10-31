@@ -1,19 +1,23 @@
 package org.wso2.carbon.esb.registry.caching;
 
 
-import org.apache.log4j.Logger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.testng.Assert;
+import org.testng.ReporterConfig;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.wso2.carbon.integration.common.admin.client.LogViewerClient;
-import org.wso2.carbon.logging.view.stub.LogViewerLogViewerException;
+import org.wso2.carbon.registry.properties.stub.utils.xsd.Property;
+//import org.wso2.carbon.logging.view.stub.LogViewerLogViewerException;
 import org.wso2.esb.integration.common.clients.registry.PropertiesAdminServiceClient;
-import org.wso2.carbon.logging.view.stub.types.carbon.LogEvent;
+import org.wso2.carbon.logging.view.data.xsd.LogEvent;
 import org.wso2.esb.integration.common.utils.ESBIntegrationTest;
 import org.wso2.esb.integration.common.utils.Utils;
 
 import java.rmi.RemoteException;
+import java.util.Properties;
 
 /**
  * ESBJAVA-3267
@@ -23,7 +27,7 @@ import java.rmi.RemoteException;
 
 public class CachableDurationTestCase extends ESBIntegrationTest {
 
-    Logger logger = Logger.getLogger(CachableDurationTestCase.class);
+    Log logger = LogFactory.getLog(CachableDurationTestCase.class);
 
     private PropertiesAdminServiceClient propertyPropertiesAdminServiceClient;
 
@@ -65,7 +69,12 @@ public class CachableDurationTestCase extends ESBIntegrationTest {
         //Update the registry value
         updateResourcesInConfigRegistry();
 
-        Assert.assertTrue(propertyPropertiesAdminServiceClient.getProperty(PATH, NAME).getProperties()[0].getValue().equals(NEW_VALUE));
+        for (Property registryResourceProperty : propertyPropertiesAdminServiceClient.getProperty(PATH, NAME).
+                getProperties()) {
+            if (registryResourceProperty.getKey().equals(NAME)) {
+                Assert.assertTrue(registryResourceProperty.getValue().equals(NEW_VALUE));
+            }
+        }
 
         SendRequest(ADD_URL, trpUrl);
 
@@ -77,9 +86,9 @@ public class CachableDurationTestCase extends ESBIntegrationTest {
     }
 
 
-    private boolean validateLogMessage(String value) throws RemoteException, LogViewerLogViewerException, InterruptedException {
+    private boolean validateLogMessage(String value) throws RemoteException, InterruptedException {
 
-        LogEvent[] logs = cli.getAllSystemLogs();
+        LogEvent[] logs = cli.getAllRemoteSystemLogs();
         Assert.assertNotNull(logs, "No logs found");
         Assert.assertTrue(logs.length > 0, "No logs found");
         return Utils.checkForLog(cli, value, 2);

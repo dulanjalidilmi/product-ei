@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~  Copyright (c) 2019, WSO2 Inc. (http://wso2.org) All Rights Reserved.
+  ~
+  ~  WSO2 Inc. licenses this file to you under the Apache License,
+  ~  Version 2.0 (the "License"); you may not use this file except
+  ~  in compliance with the License.
+  ~  You may obtain a copy of the License at
+  ~
+  ~    http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~  Unless required by applicable law or agreed to in writing,
+  ~  software distributed under the License is distributed on an
+  ~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  ~  KIND, either express or implied.  See the License for the
+  ~  specific language governing permissions and limitations
+  ~  under the License.
+  ~
+  -->
+<definitions xmlns="http://ws.apache.org/ns/synapse">
+    <api xmlns="http://ws.apache.org/ns/synapse" name="HTTPStatusResponseAPI" context="/responsesample">
+        <resource methods="GET" uri-template="/accepted">
+            <inSequence>
+                <property name="HTTP_SC" value="202" scope="axis2"/>
+                <payloadFactory media-type="text">
+                    <format>Received:202,Accepted</format>
+                    <args/>
+                </payloadFactory>
+                <respond/>
+            </inSequence>
+        </resource>
+        <resource methods="GET" uri-template="/bad_request">
+            <inSequence>
+                <property name="HTTP_SC" value="400" scope="axis2"/>
+                <payloadFactory media-type="text">
+                    <format>Received:400,Bad_Request</format>
+                    <args/>
+                </payloadFactory>
+                <respond/>
+            </inSequence>
+        </resource>
+        <resource methods="GET" uri-template="/unauthorized">
+            <inSequence>
+                <property name="HTTP_SC" value="401" scope="axis2"/>
+                <payloadFactory media-type="text">
+                    <format>Received:401,Unauthorized</format>
+                    <args/>
+                </payloadFactory>
+                <respond/>
+            </inSequence>
+        </resource>
+        <resource methods="GET" uri-template="/forbidden">
+            <inSequence>
+                <property name="HTTP_SC" value="403" scope="axis2"/>
+                <payloadFactory media-type="text">
+                    <format>Received:403,Forbidden</format>
+                    <args/>
+                </payloadFactory>
+                <respond/>
+            </inSequence>
+        </resource>
+        <resource methods="GET" uri-template="/not_found">
+            <inSequence>
+                <property name="HTTP_SC" value="404" scope="axis2"/>
+                <payloadFactory media-type="text">
+                    <format>Received:404,Not_Found</format>
+                    <args/>
+                </payloadFactory>
+                <respond/>
+            </inSequence>
+        </resource>
+        <resource methods="GET" uri-template="/conflict">
+            <inSequence>
+                <property name="HTTP_SC" value="409" scope="axis2"/>
+                <payloadFactory media-type="text">
+                    <format>Received:409,Conflict</format>
+                    <args/>
+                </payloadFactory>
+                <respond/>
+            </inSequence>
+        </resource>
+        <resource methods="GET" uri-template="/internal_server_error">
+            <inSequence>
+                <property name="HTTP_SC" value="500" scope="axis2"/>
+                <payloadFactory media-type="text">
+                    <format>Received:500,Internal_Server_Error</format>
+                    <args/>
+                </payloadFactory>
+                <respond/>
+            </inSequence>
+        </resource>
+    </api>
+</definitions>

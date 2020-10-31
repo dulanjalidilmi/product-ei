@@ -102,14 +102,14 @@ do
   if [ "$key" = "ProductVersion" ]; then
     productVersion=${tokens[1]}
     case ${productVersion} in
-        ESB-5.0.0|EI-6.0.0|EI-6.1.0|EI-6.1.1|EI-6.2.0|EI-6.3.0|EI-6.4.0|EI-6.5.0-SNAPSHOT)
+        ESB-5.0.0|EI-6.0.0|EI-6.1.0|EI-6.1.1|EI-6.2.0|EI-6.3.0|EI-6.4.0|EI-6.5.0|EI-6.6.0)
             echo "Executing tests for the product version: $productVersion"
             runTestProfile profile_general ;;
         ESB-4.9.0)
             echo "Executing tests for the product version: $productVersion"
             runTestProfile profile_490 ;;
         *)
-            echo "Unknown product version: " ${productVersion} "read from deployment.properties. Aborting the execution.";;
+            echo "ERROR: Unknown product version: " ${productVersion} "read from deployment.properties. Aborting the execution.";;
     esac
     PRODUCT_VERSION_FOUND=true
     break
@@ -122,13 +122,19 @@ if ! $PRODUCT_VERSION_FOUND ; then
 fi
 
 #=============== Copy Surefire Reports ===========================================
-
+echo
+echo "------------------------------------------------------------------------"
 echo "Copying surefire-reports to ${OUTPUT_DIR}/scenarios"
 mkdir -p ${OUTPUT_DIR}/scenarios
 find ./* -name "surefire-reports" -exec cp --parents -r {} ${OUTPUT_DIR}/scenarios \;
+ls -al ${OUTPUT_DIR}/scenarios
 
 #=============== Code Coverage Report Generation ===========================================
-
+echo
+echo "------------------------------------------------------------------------"
 echo "Generating Scenario Code Coverage Reports"
 source ${HOME}/code-coverage/code-coverage.sh
 generate_code_coverage ${INPUT_DIR} ${OUTPUT_DIR}
+
+echo "------------------------------------------------------------------------"
+echo "test.sh execution completed."

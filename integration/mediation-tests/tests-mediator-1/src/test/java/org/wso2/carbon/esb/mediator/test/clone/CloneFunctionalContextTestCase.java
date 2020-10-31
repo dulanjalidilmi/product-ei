@@ -19,12 +19,13 @@
 package org.wso2.carbon.esb.mediator.test.clone;
 
 import org.apache.axiom.om.OMElement;
+import org.awaitility.Awaitility;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.wso2.carbon.integration.common.admin.client.LogViewerClient;
-import org.wso2.carbon.logging.view.stub.types.carbon.LogEvent;
+import org.wso2.carbon.logging.view.data.xsd.LogEvent;
 import org.wso2.esb.integration.common.utils.ESBIntegrationTest;
 
 import java.util.concurrent.TimeUnit;
@@ -53,23 +54,15 @@ public class CloneFunctionalContextTestCase extends ESBIntegrationTest {
         Assert.assertNotNull(response);
 
         //Added to ensure that carbon log is updated with required entries
-        TimeUnit.SECONDS.sleep(10);
-
-        LogEvent[] getLogsInfo = logViewer.getAllRemoteSystemLogs();
-        boolean assertValue = false;
-        for (LogEvent event : getLogsInfo) {
-            if (event.getMessage().contains("REQUEST PARAM VALUE")) {
-                assertValue = true;
-                break;
-            }
-        }
-        Assert.assertTrue(assertValue, "Synapse functional context not cloned.");
+        Awaitility.await()
+                  .pollInterval(500, TimeUnit.MILLISECONDS)
+                  .atMost(300, TimeUnit.SECONDS)
+                  .until(AvailabilityPollingUtils.isMessageRecived(logViewer));
     }
 
     @AfterClass(alwaysRun = true)
     public void close() throws Exception {
         super.cleanup();
     }
-
 }
 

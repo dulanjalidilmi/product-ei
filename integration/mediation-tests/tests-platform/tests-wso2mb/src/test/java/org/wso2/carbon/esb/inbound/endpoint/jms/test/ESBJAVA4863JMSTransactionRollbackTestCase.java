@@ -26,7 +26,7 @@ import org.wso2.carbon.automation.extensions.servers.jmsserver.client.JMSQueueMe
 import org.wso2.carbon.automation.extensions.servers.jmsserver.client.JMSTopicMessagePublisher;
 import org.wso2.carbon.esb.MessageBrokerConfigurationProvider;
 import org.wso2.carbon.integration.common.admin.client.LogViewerClient;
-import org.wso2.carbon.logging.view.stub.types.carbon.LogEvent;
+import org.wso2.carbon.logging.view.data.xsd.LogEvent;
 import org.wso2.esb.integration.common.utils.ESBIntegrationTest;
 
 import java.io.File;
@@ -79,6 +79,9 @@ public class ESBJAVA4863JMSTransactionRollbackTestCase extends ESBIntegrationTes
 
         while (!faultSequenceInvoked && (System.currentTimeMillis() - startTime) < 15000) {
             LogEvent[] logs = logViewerClient.getAllRemoteSystemLogs();
+            if (logs == null) {
+                continue;
+            }
             for (LogEvent event : logs) {
                 String message = event.getMessage();
                 if (message.contains("Fault sequence invoked")) {

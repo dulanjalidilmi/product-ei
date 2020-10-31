@@ -23,7 +23,7 @@
     <parent>
         <groupId>org.wso2.ei</groupId>
         <artifactId>wso2ei-parent</artifactId>
-        <version>6.5.0-m2-SNAPSHOT</version>
+        <version>6.7.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -33,8 +33,7 @@
     <name>WSO2 Enterprise Integrator - P2 Profile Module</name>
     <url>http://wso2.org</url>
     <modules>
-        <module>msf4j-profile</module>
-        <module>micro-integrator-profile</module>
+        <!--module>msf4j-profile</module-->
         <module>ei-profile</module>
         <module>analytics-profile</module>
         <module>business-process-profile</module>
