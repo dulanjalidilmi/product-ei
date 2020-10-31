@@ -85,4 +85,13 @@ public class HttpMessageWithoutAlteringDownstreamTest extends ScenarioTestBase {
                                                    "addressEndpointViaSendMediator");
     }
 
+    @Test(description = "2.1.1.8")
+    public void addressEndpointViaSendMediatorTmp() throws Exception {
+        String proxyServiceUrl = getProxyServiceURLHttp("2_1_1_8_Proxy_addressEndpointViaSendMediator");
+
+        HTTPUtils.invokeSoapActionAndCheckContains(proxyServiceUrl, GET_QUOTE_REQUEST, header, expectedResponse,
+                                                   HttpConstants.HTTP_SC_SUCCESS, "urn:mediate",
+                                                   "addressEndpointViaSendMediatorTmp");
+    }
+
 }
