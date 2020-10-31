@@ -947,7 +947,7 @@
 
         <fileSet>
             <directory>./src/resources</directory>
-            <outputDirectory>wso2ei-${pom.version}/lib</outputDirectory>
+            <outputDirectory>wso2ei-${pom.version}/wso2/lib</outputDirectory>
             <includes>
                 <include>**/Saxon-HE-9.5.1-8.jar</include>
             </includes>
@@ -2244,6 +2244,14 @@
             <source>src/conf/axis2.xml</source>
             <outputDirectory>wso2ei-${pom.version}/conf/axis2</outputDirectory>
             <destName>axis2.xml</destName>
+            <filtered>true</filtered>
+            <fileMode>644</fileMode>
+        </file>
+
+        <file>
+            <source>src/conf/carbon.properties</source>
+            <outputDirectory>wso2ei-${pom.version}/conf</outputDirectory>
+            <destName>carbon.properties</destName>
             <filtered>true</filtered>
             <fileMode>644</fileMode>
         </file>
